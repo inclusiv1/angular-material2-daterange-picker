@@ -1,0 +1,46 @@
+<mat-toolbar color="primary">
+  Angular Material 2 App
+</mat-toolbar>
+<div class="basic-container">
+  
+  <mat-form-field>
+    <input style="text-align: center" matInput placeholder="Choose a date" [matDatepicker]="resultPicker">
+    <sg-datepicker #resultPicker touchUi="false"></sg-datepicker>
+    <span matSuffix>-</span>
+  </mat-form-field>
+  <mat-form-field>
+    <input style="text-align: center" matInput [sgDatepicker]="resultPicker">
+    <mat-datepicker-toggle matSuffix [for]="resultPicker"></mat-datepicker-toggle>
+  </mat-form-field>
+
+  <p>
+    This is a POC implementation of the "RANGE" feature for material datepicker using <b>inheritance</b> only!
+  </p>
+
+  <p>
+    Net changes are approx 75 LOC, all other code is boilerplate due to template inheritance and component
+    metadata.
+  </p>
+
+  <p>
+    The concept is simple, use 2 inputs instead of complicated masking, the input logic for date
+    is already packed within material so it's basically very simple.
+  </p>
+  <p>
+    The component is in SINGLE mode by default, on if we register a special (adiitional) input element
+    to it it will enter "RANGE" mode. the original value used for SINGLE mode is now the START DATE value
+    in RANGE MODE, and an additional range end value is used to mark the value of the end of the range.
+  </p>
+  <p>Another issue for discussion is the 2nd input, currently it's metadata attributes are ignored. Things like min/max/filter... these are taken from the 1st input...</p>
+
+
+  <p>As allways, naming of the properties (@Input) are up to discussion :), I admint the names might change</p>
+
+  <h4>TODOS</h4>
+  <ul>
+    <li>Error handling on invalid input RANGE (date validity is already provided by current imp)</li>
+    <li>Handle min/max/filter from 2nd input? maybe new directive and not inherit?</li>    
+    <li>Maybe options on where to open the popup, 1st/2nd input</li>
+    <li>Testing...</li>
+  </ul>
+</div>
